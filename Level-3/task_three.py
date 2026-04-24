@@ -134,7 +134,36 @@ class Quiz:
 
 class Marking:
 
-    def __init__(self, quiz: Quiz) -> None:
+    def __init__(self, quiz: Quiz):
+        self._quiz = quiz
+
+    @property
+    def quiz(self) -> Quiz:
+        return self._quiz
+
+    @quiz.setter
+    def quiz(self) -> int:
+        """ Returns the score for an assessment as a percentage rounded to 0 decimal places. """
+        score = 0
+        questions = self._quiz.questions
+        for question in questions:
+            if question.chosen_answer == question.correct_answer:
+                score += 1
+        percentage = (score / len(questions)) * 100
+        return percentage
+
+    def mark(self) -> int:
+        """ Returns the score for an assessment as a percentage rounded to 0 decimal places. """
+        quiz = self.quiz
+        score = 0
+        questions = quiz.questions
+        for question in questions:
+            if question.chosen_answer == question.correct_answer:
+                score += 1
+        percentage = (score / len(questions)) * 100
+        return percentage
+
+    def generate_assessment(self) -> Assessment:
         pass
 
 
@@ -150,3 +179,5 @@ if __name__ == "__main__":
     quiz = Quiz(questions, "Maths Quiz", "multiple-choice")
 
     # Add an implementation for the Marking class below to test your code
+    marking = Marking(quiz)
+    print(marking)
