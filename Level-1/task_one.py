@@ -5,6 +5,7 @@ class Trainee:
     """ A Trainee at Tau Labs. """
 
     def __init__(self, name: str, email: str, date_of_birth: date):
+        """ Runs when a new Trainee instance is created. """
         self.name = name
         self.email = email
         self.date_of_birth = date_of_birth
@@ -41,6 +42,7 @@ class Assessment:
     """ An assessment that a trainee has completed. """
 
     def __init__(self, name: str, type: str, score: float):
+        """ Runs when a new Assessment instance is created. """
         self.name = name
         self.type = type
         self.type_check()

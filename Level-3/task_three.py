@@ -5,6 +5,7 @@ class Trainee:
     """ A Trainee at Tau Labs. """
 
     def __init__(self, name: str, email: str, date_of_birth: date):
+        """ Runs when a new Trainee instance is created. """
         self.name = name
         self.email = email
         self.date_of_birth = date_of_birth
@@ -32,6 +33,10 @@ class Trainee:
             if name == test.name:
                 return test
         return None
+
+    def __str__(self) -> str:
+        """ Represents the trainee as a string. """
+        return f"Trainee Name: {self.name}, Trainee Email: {self.email}, Trainee DOB: {self.date_of_birth}"
 
     def assessment_check(self):
         """ Checks if an assessment is the correct type. """
@@ -65,6 +70,7 @@ class Assessment:
     """ An assessment that a trainee has completed. """
 
     def __init__(self, name: str, score: float):
+        """ Runs when a new Assessment instance is created. """
         self.name = name
         self.score = score
         self.score_check()
@@ -76,6 +82,10 @@ class Assessment:
             raise ValueError("Score must be 100 or less")
         if score < 0:
             raise ValueError("Score must be 0 or more.")
+
+    def __str__(self) -> str:
+        """ Represents an assessment that a trainee has completed. """
+        return f"Assessment name: {self.name}, Assessment type: {self.type}, Assessment score: {self.score}"
 
 
 class MultipleChoiceAssessment(Assessment):
@@ -112,6 +122,7 @@ class Question:
     """ A question in a quiz. """
 
     def __init__(self, question: str, chosen_answer: str, correct_answer: str):
+        """ Runs when a new Question instance is created. """
         self.question = question
         self.chosen_answer = chosen_answer
         self.correct_answer = correct_answer
@@ -121,6 +132,7 @@ class Quiz:
     """ A quiz. """
 
     def __init__(self, questions: list, name: str, type: str):
+        """ Runs when a new Quiz instance is created. """
         self.questions = questions
         self.name = name
         self.type = type
@@ -130,6 +142,7 @@ class Marking:
     """ Marks assessments. """
 
     def __init__(self, quiz: Quiz):
+        """ Runs when a new Marking instance is created. """
         self._quiz = quiz
 
     @property
