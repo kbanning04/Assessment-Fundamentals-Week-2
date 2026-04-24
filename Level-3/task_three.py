@@ -36,13 +36,14 @@ class Trainee:
     def assessment_check(self):
         """ Checks if an assessment is the correct type. """
         assessments = self.assessments
-        if assessments == []:
+        if not assessments:
             raise TypeError("Assessment is empty.")
         for test in assessments:
             if not isinstance(test, Assessment):
                 raise TypeError("Assessment Error is not an Assessment.")
 
     def get_assessment_of_type(self, type: str) -> list[Assessment]:
+        """ Lists all the assessments of the same type that was given. """
         assessments = self.assessments
         correct_type_assessments = []
         if type == "multiple-choice":
@@ -73,15 +74,12 @@ class Assessment:
         score = self.score
         if score > 100:
             raise ValueError("Score must be 100 or less")
-        elif score < 0:
+        if score < 0:
             raise ValueError("Score must be 0 or more.")
 
 
 class MultipleChoiceAssessment(Assessment):
     """ A Multiple Choice style Assessment. """
-
-    def __init__(self, name, score):
-        super().__init__(name, score)
 
     def calculate_score(self):
         """ Calculates the score for a multiple choice assessment. """
@@ -93,9 +91,6 @@ class MultipleChoiceAssessment(Assessment):
 class TechnicalAssessment(Assessment):
     """ A Technical style Assessment. """
 
-    def __init__(self, name, score):
-        super().__init__(name, score)
-
     def calculate_score(self):
         """ Calculates the score for a technical assessment. """
         score = self.score
@@ -106,9 +101,6 @@ class TechnicalAssessment(Assessment):
 class PresentationAssessment(Assessment):
     """ A Presentation style Assessment. """
 
-    def __init__(self, name, score):
-        super().__init__(name, score)
-
     def calculate_score(self):
         """ Calculates the score for a presentation assessment. """
         score = self.score
@@ -117,6 +109,7 @@ class PresentationAssessment(Assessment):
 
 
 class Question:
+    """ A question in a quiz. """
 
     def __init__(self, question: str, chosen_answer: str, correct_answer: str):
         self.question = question
@@ -125,6 +118,7 @@ class Question:
 
 
 class Quiz:
+    """ A quiz. """
 
     def __init__(self, questions: list, name: str, type: str):
         self.questions = questions
@@ -133,30 +127,28 @@ class Quiz:
 
 
 class Marking:
+    """ Marks assessments. """
 
     def __init__(self, quiz: Quiz):
         self._quiz = quiz
 
     @property
     def quiz(self) -> Quiz:
+        """ Getter for the private variable 'quiz'. """
         return self._quiz
 
     @quiz.setter
-    def quiz(self) -> int:
-        """ Returns the score for an assessment as a percentage rounded to 0 decimal places. """
-        score = 0
-        questions = self._quiz.questions
-        for question in questions:
-            if question.chosen_answer == question.correct_answer:
-                score += 1
-        percentage = (score / len(questions)) * 100
-        return percentage
+    def quiz(self, quiz_questions: Quiz) -> int:
+        """ Setter for the private variable 'quiz'."""
+        self._quiz = quiz_questions
 
     def mark(self) -> int:
         """ Returns the score for an assessment as a percentage rounded to 0 decimal places. """
         quiz = self.quiz
         score = 0
         questions = quiz.questions
+        if questions == []:
+            return 0
         for question in questions:
             if question.chosen_answer == question.correct_answer:
                 score += 1
@@ -164,7 +156,20 @@ class Marking:
         return percentage
 
     def generate_assessment(self) -> Assessment:
-        pass
+        """" Generates an Assessment that has been completed. """
+        new_quiz = self.quiz
+        if new_quiz.type == "multiple-choice":
+            assessment_type = MultipleChoiceAssessment
+        elif new_quiz.type == "technical":
+            assessment_type = TechnicalAssessment
+        elif new_quiz.type == "presentation":
+            assessment_type = PresentationAssessment
+        else:
+            raise ValueError(
+                "Assessment type must be multiple-choice, technical or presentation.")
+
+        new_assessment = assessment_type(new_quiz.name, self.mark())
+        return new_assessment
 
 
 if __name__ == "__main__":
@@ -179,5 +184,7 @@ if __name__ == "__main__":
     quiz = Quiz(questions, "Maths Quiz", "multiple-choice")
 
     # Add an implementation for the Marking class below to test your code
-    marking = Marking(quiz)
+    marking = Marking.mark(quiz)
     print(marking)
+    # generate = Marking.generate_assessment(quiz)
+    # print(generate)
