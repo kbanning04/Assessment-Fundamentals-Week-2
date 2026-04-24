@@ -34,7 +34,7 @@ class Trainee:
 
 
 class Assessment:
-    """ An assessment that a trainee should complete. """
+    """ An assessment that a trainee has completed. """
 
     def __init__(self, name: str, type: str, score: float):
         self.name = name

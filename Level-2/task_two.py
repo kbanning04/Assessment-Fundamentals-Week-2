@@ -43,6 +43,7 @@ class Trainee:
                 raise TypeError("Assessment Error is not an Assessment.")
 
     def get_assessment_of_type(self, type: str) -> list[Assessment]:
+        """ Lists all the assessments of the same type that was given. """
         assessments = self.assessments
         correct_type_assessments = []
         if type == "multiple-choice":
@@ -61,7 +62,7 @@ class Trainee:
 
 
 class Assessment:
-    """ An assessment that a trainee should complete. """
+    """ An assessment that a trainee has completed. """
 
     def __init__(self, name: str, score: float):
         self.name = name
@@ -73,15 +74,12 @@ class Assessment:
         score = self.score
         if score > 100:
             raise ValueError("Score must be 100 or less")
-        elif score < 0:
+        if score < 0:
             raise ValueError("Score must be 0 or more.")
 
 
 class MultipleChoiceAssessment(Assessment):
     """ A Multiple Choice style Assessment. """
-
-    def __init__(self, name, score):
-        super().__init__(name, score)
 
     def calculate_score(self):
         """ Calculates the score for a multiple choice assessment. """
@@ -93,9 +91,6 @@ class MultipleChoiceAssessment(Assessment):
 class TechnicalAssessment(Assessment):
     """ A Technical style Assessment. """
 
-    def __init__(self, name, score):
-        super().__init__(name, score)
-
     def calculate_score(self):
         """ Calculates the score for a technical assessment. """
         score = self.score
@@ -105,9 +100,6 @@ class TechnicalAssessment(Assessment):
 
 class PresentationAssessment(Assessment):
     """ A Presentation style Assessment. """
-
-    def __init__(self, name, score):
-        super().__init__(name, score)
 
     def calculate_score(self):
         """ Calculates the score for a presentation assessment. """
