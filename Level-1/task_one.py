@@ -32,6 +32,10 @@ class Trainee:
                 return test
         return None
 
+    def __str__(self) -> str:
+        """ Represents the trainee as a string. """
+        return f"Trainee Name: {self.name}, Trainee Email: {self.email}, Trainee DOB: {self.date_of_birth}"
+
 
 class Assessment:
     """ An assessment that a trainee has completed. """
@@ -57,6 +61,10 @@ class Assessment:
             raise ValueError("Score must be 100 or less")
         elif score < 0:
             raise ValueError("Score must be 0 or more.")
+
+    def __str__(self) -> str:
+        """ Represents an assessment that a trainee has completed. """
+        return f"Assessment name: {self.name}, Assessment type: {self.type}, Assessment score: {self.score}"
 
 
 if __name__ == "__main__":
