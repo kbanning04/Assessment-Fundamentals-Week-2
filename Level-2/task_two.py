@@ -36,19 +36,10 @@ class Trainee:
 class Assessment:
     """ An assessment that a trainee should complete. """
 
-    def __init__(self, name: str, type: str, score: float):
+    def __init__(self, name: str, score: float):
         self.name = name
-        self.type = type
-        self.type_check()
         self.score = score
         self.score_check()
-
-    def type_check(self):
-        """ Checks if a assessment is the right type: multiple-choice, technical or presentation."""
-        type = self.type
-        if type not in {"multiple-choice", "technical", "presentation"}:
-            raise ValueError(
-                "Assessment should be multiple-choice, technical or presentation only.")
 
     def score_check(self):
         """ Checks if the score is between 0 and 100. """
@@ -57,6 +48,39 @@ class Assessment:
             raise ValueError("Score must be 100 or less")
         elif score < 0:
             raise ValueError("Score must be 0 or more.")
+
+    def calculate_score(self):
+        pass
+
+
+class MultipleChoiceAssessment(Assessment):
+    def __init__(self, name, score):
+        super().__init__(name, score)
+
+    def calculate_score(self):
+        score = self.score
+        weighting = 0.7
+        return score * weighting
+
+
+class TechnicalAssessment(Assessment):
+    def __init__(self, name, score):
+        super().__init__(name, score)
+
+    def calculate_score(self):
+        score = self.score
+        weighting = 1
+        return score * weighting
+
+
+class PresentationAssessment(Assessment):
+    def __init__(self, name, score):
+        super().__init__(name, score)
+
+    def calculate_score(self):
+        score = self.score
+        weighting = 0.6
+        return score * weighting
 
 
 if __name__ == "__main__":
