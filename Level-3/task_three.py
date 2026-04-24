@@ -85,7 +85,7 @@ class Assessment:
 
     def __str__(self) -> str:
         """ Represents an assessment that a trainee has completed. """
-        return f"Assessment name: {self.name}, Assessment type: {self.type}, Assessment score: {self.score}"
+        return f"Assessment name: {self.name}, Assessment score: {self.score}"
 
 
 class MultipleChoiceAssessment(Assessment):
@@ -197,7 +197,6 @@ if __name__ == "__main__":
     quiz = Quiz(questions, "Maths Quiz", "multiple-choice")
 
     # Add an implementation for the Marking class below to test your code
-    marking = Marking.mark(quiz)
-    print(marking)
-    # generate = Marking.generate_assessment(quiz)
-    # print(generate)
+    marking = Marking(quiz)
+
+    print(marking.mark)
