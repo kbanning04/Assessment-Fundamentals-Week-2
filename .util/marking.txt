@@ -1,10 +1,10 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.14.4, pytest-9.0.3, pluggy-1.6.0
 rootdir: /home/runner/work/Assessment-Fundamentals-Week-2/Assessment-Fundamentals-Week-2
-collected 9 items / 2 errors
+collected 16 items / 1 error
 
-!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
-============================== 2 errors in 0.13s ===============================
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.13s ===============================
 ************* Module task_one
 Level-1/task_one.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 Level-1/task_one.py:39:34: W0622: Redefining built-in 'type' (redefined-builtin)
@@ -12,12 +12,14 @@ Level-1/task_one.py:48:8: W0622: Redefining built-in 'type' (redefined-builtin)
 Level-1/task_one.py:56:8: R1720: Unnecessary "elif" after "raise", remove the leading "el" from "elif" (no-else-raise)
 ************* Module task_two
 Level-2/task_two.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-Level-2/task_two.py:39:34: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-2/task_two.py:48:8: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-2/task_two.py:56:8: R1720: Unnecessary "elif" after "raise", remove the leading "el" from "elif" (no-else-raise)
-Level-2/task_two.py:66:27: E0602: Undefined variable 'MultipleChoiceAssessment' (undefined-variable)
-Level-2/task_two.py:68:27: E0602: Undefined variable 'TechnicalAssessment' (undefined-variable)
-Level-2/task_two.py:70:27: E0602: Undefined variable 'MultipleChoiceAssessment' (undefined-variable)
+Level-2/task_two.py:39:11: C1803: "assessments == []" can be simplified to "not assessments", if it is strictly a sequence, as an empty list is falsey (use-implicit-booleaness-not-comparison)
+Level-2/task_two.py:45:4: C0116: Missing function or method docstring (missing-function-docstring)
+Level-2/task_two.py:45:37: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-2/task_two.py:74:8: R1720: Unnecessary "elif" after "raise", remove the leading "el" from "elif" (no-else-raise)
+Level-2/task_two.py:63:0: R0903: Too few public methods (1/2) (too-few-public-methods)
+Level-2/task_two.py:83:4: W0246: Useless parent or super() delegation in method '__init__' (useless-parent-delegation)
+Level-2/task_two.py:96:4: W0246: Useless parent or super() delegation in method '__init__' (useless-parent-delegation)
+Level-2/task_two.py:109:4: W0246: Useless parent or super() delegation in method '__init__' (useless-parent-delegation)
 ************* Module task_three
 Level-3/task_three.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 Level-3/task_three.py:17:0: C0115: Missing class docstring (missing-class-docstring)
@@ -31,5 +33,5 @@ Level-3/task_three.py:35:23: W0621: Redefining name 'quiz' from outer scope (lin
 Level-3/task_three.py:33:0: R0903: Too few public methods (0/2) (too-few-public-methods)
 
 ------------------------------------------------------------------
-Your code has been rated at 7.16/10 (previous run: 7.16/10, +0.00)
+Your code has been rated at 8.50/10 (previous run: 8.50/10, +0.00)
 
