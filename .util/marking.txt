@@ -1,37 +1,36 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.14.4, pytest-9.0.3, pluggy-1.6.0
 rootdir: /home/runner/work/Assessment-Fundamentals-Week-2/Assessment-Fundamentals-Week-2
-collected 16 items / 1 error
+collected 24 items
 
-!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
-=============================== 1 error in 0.13s ===============================
+Level-1/test_one_task.py .........                                       [ 37%]
+Level-2/test_two_task.py .....F.                                         [ 66%]
+Level-3/test_three_task.py ........                                      [100%]
+
+========================= 1 failed, 23 passed in 0.04s =========================
 ************* Module task_one
+Level-1/task_one.py:38:0: C0301: Line too long (107/100) (line-too-long)
+Level-1/task_one.py:69:0: C0301: Line too long (108/100) (line-too-long)
 Level-1/task_one.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-Level-1/task_one.py:39:34: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-1/task_one.py:48:8: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-1/task_one.py:56:8: R1720: Unnecessary "elif" after "raise", remove the leading "el" from "elif" (no-else-raise)
+Level-1/task_one.py:44:34: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-1/task_one.py:54:8: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-1/task_one.py:62:8: R1720: Unnecessary "elif" after "raise", remove the leading "el" from "elif" (no-else-raise)
 ************* Module task_two
+Level-2/task_two.py:39:0: C0301: Line too long (107/100) (line-too-long)
 Level-2/task_two.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-Level-2/task_two.py:39:11: C1803: "assessments == []" can be simplified to "not assessments", if it is strictly a sequence, as an empty list is falsey (use-implicit-booleaness-not-comparison)
-Level-2/task_two.py:45:4: C0116: Missing function or method docstring (missing-function-docstring)
-Level-2/task_two.py:45:37: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-2/task_two.py:74:8: R1720: Unnecessary "elif" after "raise", remove the leading "el" from "elif" (no-else-raise)
-Level-2/task_two.py:63:0: R0903: Too few public methods (1/2) (too-few-public-methods)
-Level-2/task_two.py:83:4: W0246: Useless parent or super() delegation in method '__init__' (useless-parent-delegation)
-Level-2/task_two.py:96:4: W0246: Useless parent or super() delegation in method '__init__' (useless-parent-delegation)
-Level-2/task_two.py:109:4: W0246: Useless parent or super() delegation in method '__init__' (useless-parent-delegation)
+Level-2/task_two.py:51:37: W0622: Redefining built-in 'type' (redefined-builtin)
 ************* Module task_three
+Level-3/task_three.py:39:0: C0301: Line too long (107/100) (line-too-long)
 Level-3/task_three.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-Level-3/task_three.py:17:0: C0115: Missing class docstring (missing-class-docstring)
-Level-3/task_three.py:17:0: R0903: Too few public methods (0/2) (too-few-public-methods)
-Level-3/task_three.py:25:0: C0115: Missing class docstring (missing-class-docstring)
-Level-3/task_three.py:27:23: W0621: Redefining name 'questions' from outer scope (line 41) (redefined-outer-name)
-Level-3/task_three.py:27:51: W0622: Redefining built-in 'type' (redefined-builtin)
-Level-3/task_three.py:25:0: R0903: Too few public methods (0/2) (too-few-public-methods)
-Level-3/task_three.py:33:0: C0115: Missing class docstring (missing-class-docstring)
-Level-3/task_three.py:35:23: W0621: Redefining name 'quiz' from outer scope (line 48) (redefined-outer-name)
-Level-3/task_three.py:33:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+Level-3/task_three.py:50:37: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-3/task_three.py:121:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+Level-3/task_three.py:134:23: W0621: Redefining name 'questions' from outer scope (line 190) (redefined-outer-name)
+Level-3/task_three.py:134:51: W0622: Redefining built-in 'type' (redefined-builtin)
+Level-3/task_three.py:131:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+Level-3/task_three.py:144:23: W0621: Redefining name 'quiz' from outer scope (line 197) (redefined-outer-name)
+Level-3/task_three.py:160:8: W0621: Redefining name 'quiz' from outer scope (line 197) (redefined-outer-name)
+Level-3/task_three.py:162:8: W0621: Redefining name 'questions' from outer scope (line 190) (redefined-outer-name)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.50/10 (previous run: 8.50/10, +0.00)
+Your code has been rated at 9.26/10 (previous run: 9.26/10, +0.00)
 
